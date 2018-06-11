@@ -1,0 +1,16 @@
+@model Ids4.Host.Models.LoginViewModel
+
+<div class="login-page">
+
+  <partial name="_ValidationSummary" />
+
+  <div class="form">
+    <form class="login-form">
+      <input type="hidden" asp-for="ReturnUrl" />
+      <input class="form-control" placeholder="Username" asp-for="Username" autofocus>
+      <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
+      <button>login</button>
+      <p class="message">Not registered? <a href="#">Create an account</a></p>
+    </form>
+  </div>
+</div>
