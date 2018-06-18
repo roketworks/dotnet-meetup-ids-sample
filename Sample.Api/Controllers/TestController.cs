@@ -10,11 +10,11 @@ namespace Sample.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class UserInfoController : ControllerBase
+    public class TestController : ControllerBase
     {
         public ActionResult Get() 
         {
-            return Ok(User.Claims);
+            return Ok(new {Value = "test"});
         }
     }
 }

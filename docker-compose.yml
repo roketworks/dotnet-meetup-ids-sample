@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  identityserver:
+    image: identityserver
+    build:
+      context: ./Ids4.Host
+      dockerfile: Dockerfile
+    ports:
+     - "8080:80"
+  api:
+    image: api
+    build:
+      context: ./Sample.Api
+      dockerfile: Dockerfile
+    ports:
+     - "8081:80"
+    depends_on:
+      - "identityserver"
+  client:
+    image: client
+    ports:
+     - "80:80"
+    build:
+      context: ./Web.App
+      dockerfile: Dockerfile
+    depends_on:
+      - "identityserver"
+      - "api"

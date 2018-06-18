@@ -25,10 +25,16 @@ namespace Ids4.Host
         {
             services.AddMvc();
             services
-                .AddIdentityServer()
+                .AddIdentityServer(config => {
+                    config.Events.RaiseInformationEvents = true; 
+                    config.Events.RaiseFailureEvents = true;
+                    config.Events.RaiseSuccessEvents = true; 
+                    config.Events.RaiseErrorEvents = true;
+                })
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients());
+                .AddInMemoryClients(Config.GetClients())
+                .AddDeveloperSigningCredential();
 
             return services.BuildServiceProvider(validateScopes: true);
         }

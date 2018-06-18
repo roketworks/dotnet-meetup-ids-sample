@@ -38,14 +38,16 @@ namespace Ids4.Host.Controllers
             _events = events;
         }
 
-                [HttpGet]
+        [HttpGet]
         public async Task<IActionResult> Login(string returnUrl)
         {
             // build a model so we know what to show on the login page
             var vm = await BuildLoginViewModelAsync(returnUrl);
+            ViewData["ReturnUrl"] = returnUrl;
             return View(vm);
         }
 
+        [HttpPost]
         public async Task<ActionResult> Login(LoginInputModel model)
         {
             var context = await _interaction.GetAuthorizationContextAsync(model.ReturnUrl);
@@ -95,6 +97,7 @@ namespace Ids4.Host.Controllers
                 ModelState.AddModelError("", "Invalid username or password");
             }
 
+            await _events.RaiseAsync(new UserLoginFailureEvent(model.Username, "SOMETHING WENT WRONG"));
              // something went wrong, show form with error
             var vm = await BuildLoginViewModelAsync(model);
             return View(vm);
@@ -116,7 +119,6 @@ namespace Ids4.Host.Controllers
         {
             var vm = await BuildLoginViewModelAsync(model.ReturnUrl);
             vm.Username = model.Username;
-            vm.RememberLogin = model.RememberLogin;
             return vm;
         }
     }

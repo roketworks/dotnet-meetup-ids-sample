@@ -1,16 +1,17 @@
-@model Ids4.Host.Models.LoginViewModel
+@using Ids4.Host.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Ids4.Host.Models.LoginInputModel
 
 <div class="login-page">
 
   <partial name="_ValidationSummary" />
 
   <div class="form">
-    <form class="login-form">
-      <input type="hidden" asp-for="ReturnUrl" />
-      <input class="form-control" placeholder="Username" asp-for="Username" autofocus>
-      <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
-      <button>login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
+    <form method="post" class="login-form">
+      <input asp-for="ReturnUrl" type="hidden"  />
+      <input asp-for="Username"  class="form-control" placeholder="Username" autofocus>
+      <input asp-for="Password" type="password" class="form-control" placeholder="Password" autocomplete="off">
+      <button type="submit">login</button>
     </form>
   </div>
 </div>

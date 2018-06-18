@@ -31,7 +31,9 @@ namespace Sample.Api
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
-
+                    options.Authority = Configuration["JwtBearer:Authority"];
+                    options.Audience = "sample.api";
+                    options.RequireHttpsMetadata = false; // ONLY FOR DEMO... 
                 });
         }
 

@@ -8,7 +8,6 @@ namespace Ids4.Host.Models
         public string Username { get; set; }
         [Required]
         public string Password { get; set; }
-        public bool RememberLogin { get; set; }
         public string ReturnUrl { get; set; }
     }
 }
