@@ -9,7 +9,7 @@
     <button (click)='onCallAPI()'>Call API</button>
     <button (click)='onRenewToken()'>Renew Token</button>
   </div>
-  <div class="info">
+  <div class="json">
     <pre *ngIf="currentUser">{{currentUserJson}}</pre>
     <pre *ngIf="!currentUser">Not Signed In</pre>
   </div>

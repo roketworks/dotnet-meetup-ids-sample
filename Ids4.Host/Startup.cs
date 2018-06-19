@@ -30,6 +30,7 @@ namespace Ids4.Host
                     config.Events.RaiseFailureEvents = true;
                     config.Events.RaiseSuccessEvents = true; 
                     config.Events.RaiseErrorEvents = true;
+                    config.IssuerUri = "http://identityserver";
                 })
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())

@@ -48,7 +48,8 @@ namespace Ids4.Host
                 },
                 RedirectUris = 
                 {
-                    "http://localhost/assets/signin-redirect.html"
+                    "http://localhost/assets/signin-redirect.html",
+                    "http://localhost/assets/silent-callback.html"
                 },
                 PostLogoutRedirectUris = 
                 {

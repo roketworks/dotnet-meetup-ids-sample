@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
       }
       else {
         this.addMessage("User Not Logged In");
-        this.addMessage("User Not Logged In");
       }
     }).catch(err => this.addError(err));
   }
@@ -44,21 +43,18 @@ export class AppComponent implements OnInit {
   }
 
   public onLogin() {
-    this.clearMessages();
     this.auth.login().catch(err => {
       this.addError(err);
     });
   }
 
   public onCallAPI() {
-    this.clearMessages();
     this.apiService.callApi().then(result => {
       this.addMessage("API Result: " + JSON.stringify(result));
     }, err => this.addError(err));
   }
 
   public onRenewToken() {
-    this.clearMessages();
     this.auth.renewToken()
       .then(user=>{
         this.currentUser = user;

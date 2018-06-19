@@ -33,7 +33,7 @@ export class TestApiService {
       'Authorization': 'Bearer ' + token
     });
 
-    return this._httpClient.get('http://localhost:8081/api/test', { headers: headers })
+    return this._httpClient.get('http://localhost:8082/api/test', { headers: headers })
       .toPromise()
       .catch((result : HttpErrorResponse) => {
           if (result.status === 401){
