@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Ids4.Host.Config;
+using Ids4.Host.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -32,9 +34,10 @@ namespace Ids4.Host
                     config.Events.RaiseErrorEvents = true;
                     config.IssuerUri = "http://identityserver";
                 })
-                .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients())
+                .AddInMemoryIdentityResources(Resources.GetIdentityResources())
+                .AddInMemoryApiResources(Resources.GetApiResources())
+                .AddInMemoryClients(Resources.GetClients())
+                .AddProfileService<ProfileService>()
                 .AddDeveloperSigningCredential();
 
             return services.BuildServiceProvider(validateScopes: true);

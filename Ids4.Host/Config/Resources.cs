@@ -4,21 +4,22 @@ using IdentityModel;
 using IdentityServer4;
 using IdentityServer4.Models;
 
-namespace Ids4.Host 
+namespace Ids4.Host.Config
 {
-    internal static class Config 
+    internal static class Resources 
     {
         internal static IEnumerable<IdentityResource> GetIdentityResources () => new List<IdentityResource> 
         {
             // some standard scopes from the OIDC spec
-            new IdentityResources.OpenId (),
-            new IdentityResources.Profile (),
-            new IdentityResources.Email ()
+            new IdentityResources.OpenId(),
+            new IdentityResources.Profile(),
+            new IdentityResources.Email(),
+            new IdentityResource("role", new [] {"role"})
         };
 
         internal static IEnumerable<ApiResource> GetApiResources () => new List<ApiResource> 
         {
-            new ApiResource ("sample.api", new [] { JwtClaimTypes.Name, JwtClaimTypes.Email, "role" })
+            new ApiResource ("sample.api", new [] { "role" })
         };
 
         internal static IEnumerable<Client> GetClients () => new List<Client> 

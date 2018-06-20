@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using IdentityServer4.Test;
 
-namespace Ids4.Host.Controllers
+namespace Ids4.Host.Config
 {
     internal class TestUsers
     {

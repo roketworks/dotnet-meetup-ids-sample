@@ -9,6 +9,7 @@ using IdentityServer4.Test;
 using IdentityServer4.Events;
 using System;
 using Microsoft.AspNetCore.Http;
+using Ids4.Host.Config;
 
 namespace Ids4.Host.Controllers
 {
