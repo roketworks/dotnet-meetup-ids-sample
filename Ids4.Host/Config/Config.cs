@@ -18,7 +18,7 @@ namespace Ids4.Host
 
         internal static IEnumerable<ApiResource> GetApiResources () => new List<ApiResource> 
         {
-            new ApiResource ("sample.api", new [] { JwtClaimTypes.Name, JwtClaimTypes.Email })
+            new ApiResource ("sample.api", new [] { JwtClaimTypes.Name, JwtClaimTypes.Email, "role" })
         };
 
         internal static IEnumerable<Client> GetClients () => new List<Client> 
@@ -40,6 +40,7 @@ namespace Ids4.Host
                     JwtClaimTypes.Issuer,
                     JwtClaimTypes.Subject,
                     JwtClaimTypes.Audience,
+                    "role",
                     "sample.api"
                 },
                 AllowedCorsOrigins = 

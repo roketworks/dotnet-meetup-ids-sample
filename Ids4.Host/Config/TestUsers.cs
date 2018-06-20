@@ -15,7 +15,10 @@ namespace Ids4.Host.Controllers
                 Password = "Th3G0ldenG0d!",
                 Claims = new List<Claim> 
                 {
-                    new Claim("role", "manager")
+                    new Claim("role", "manager"),
+                    new Claim("email", "brian.lafeve@attwater.com"),
+                    new Claim("first_name", "Brian"),
+                    new Claim("last_name", "LaFeve")
                 }
             }
         };

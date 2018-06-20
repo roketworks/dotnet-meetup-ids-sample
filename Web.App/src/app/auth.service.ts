@@ -18,7 +18,7 @@ export class AuthService {
       silent_redirect_uri: 'http://localhost/assets/silent-callback.html',
       post_logout_redirect_uri: 'http://localhost',
       response_type: 'id_token token',
-      scope: 'openid profile email sample.api'
+      scope: 'openid profile email role sample.api'
     };
     this._userManager = new UserManager(settings);
   }
