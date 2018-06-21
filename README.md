@@ -1,19 +1,17 @@
 # Dotnet Meetup IdentityServer4 Sample
 
-Simple IdneityServer4 sample, inclusing IdentityServer4 Host, API and Angular client
+Simple IdneityServer4 sample, inclusing IdentityServer4 Host, API and Angular client.
 
 #### Ids4.Host 
-Contains IdentityServer4 with sample configuration
+Contains IdentityServer4 with sample in-memory configuration & users.
 
 #### Sample.Api
-Simple API protected by JWT Bearer Authentixation
+Simple API protected by JWT Bearer Authentixation.
 
 #### Web.App
-Angular6 client using oidc-client to demonstrate Implicit flow
+Angular6 client using oidc-client to demonstrate Implicit flow.
 
 
 ## Running Sample
 
-If using docker just run:
-
-`docker-compose up` 
+If using docker just run: `docker-compose up` 
